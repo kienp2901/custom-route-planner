@@ -33,7 +33,7 @@ cp env.example .env.local
 3. Cập nhật các biến môi trường trong `.env.local`:
 ```
 NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_google_maps_api_key_here
-NEXT_PUBLIC_API_BASE_URL=http://localhost:3001
+NEXT_PUBLIC_API_BASE_URL=http://localhost:3000
 ```
 
 4. Chạy ứng dụng:
