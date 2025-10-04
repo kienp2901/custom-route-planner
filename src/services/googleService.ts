@@ -25,15 +25,16 @@ class GoogleService {
 
   constructor() {
     this.apiKey = process.env.GOOGLE_MAPS_API_KEY || '';
-    if (!this.apiKey) {
-      throw new Error('GOOGLE_MAPS_API_KEY is required');
-    }
   }
 
   /**
    * Geocode an address to get latitude and longitude
    */
   async geocodeAddress(address: string): Promise<GeocodingResult> {
+    if (!this.apiKey) {
+      throw new Error('GOOGLE_MAPS_API_KEY is required');
+    }
+    
     try {
       const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
         params: {
