@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import { body, validationResult } from 'express-validator';
 import GoogleService from '../services/googleService';
 
@@ -23,7 +23,7 @@ const validateRouteRequest = [
  * POST /api/route
  * Calculate route between multiple destinations
  */
-router.post('/route', validateRouteRequest, async (req, res) => {
+router.post('/route', validateRouteRequest, async (req: Request, res: Response) => {
   try {
     // Check validation errors
     const errors = validationResult(req);

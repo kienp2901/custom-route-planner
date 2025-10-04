@@ -34,7 +34,7 @@ cp env.example .env
 
 3. Cập nhật các biến môi trường trong `.env`:
 ```
-PORT=3001
+PORT=3000
 GOOGLE_MAPS_API_KEY=your_google_maps_api_key_here
 ```
 
@@ -51,7 +51,7 @@ npm run build
 npm start
 ```
 
-API server sẽ chạy tại `http://localhost:3001`
+API server sẽ chạy tại `http://localhost:3000`
 
 ## API Endpoints
 
@@ -131,5 +131,5 @@ API xử lý các lỗi phổ biến:
 
 ## Environment Variables
 
-- `PORT`: Port cho server (default: 3001)
+- `PORT`: Port cho server (default: 3000)
 - `GOOGLE_MAPS_API_KEY`: API key cho Google Maps services
