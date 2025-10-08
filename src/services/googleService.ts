@@ -43,6 +43,8 @@ class GoogleService {
         }
       });
 
+      console.log(response, 'key: ', this.apiKey);
+
       if (response.data.status !== 'OK') {
         throw new Error(`Geocoding failed: ${response.data.status}`);
       }
@@ -65,6 +67,9 @@ class GoogleService {
    */
   async getRoute(destinations: string[], mode: 'driving' | 'walking'): Promise<RouteResponse> {
     try {
+      console.log(destinations, 'destinations');
+      console.log(mode, 'mode');
+      console.log(this.apiKey, 'apiKey');
       // First, geocode all destinations
       const geocodedDestinations = await Promise.all(
         destinations.map(dest => this.geocodeAddress(dest))
@@ -87,6 +92,8 @@ class GoogleService {
           key: this.apiKey
         }
       });
+
+      console.log(response.data.status, 'response');
 
       if (response.data.status !== 'OK') {
         throw new Error(`Directions API failed: ${response.data.status}`);
@@ -114,6 +121,7 @@ class GoogleService {
         map_polyline: route.overview_polyline.points
       };
     } catch (error) {
+      console.log(error, 'error');
       throw new Error(`Failed to get route: ${error}`);
     }
   }
