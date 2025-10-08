@@ -15,14 +15,16 @@ export const routeApi = {
   calculateRoute: async (data: RouteRequest): Promise<RouteResponse> => {
     try {
       const response = await api.post<ApiResponse<RouteResponse>>('/api/route', data);
-      
+      console.log(response, 'response');
       if (response.data.success && response.data.data) {
         return response.data.data;
       } else {
         throw new Error(response.data.error || 'Failed to calculate route');
       }
     } catch (error) {
+      console.log('Full error:', error);
       if (axios.isAxiosError(error)) {
+        console.log('Error response data:', error.response?.data);
         const message = error.response?.data?.error || error.message;
         throw new Error(message);
       }
